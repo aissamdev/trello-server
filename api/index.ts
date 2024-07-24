@@ -49,9 +49,8 @@ app.post('/api/login', async (req, res) => {
     if (!user || !compareSync(password, user.password)) {
         res.status(401).json({ error: 'Invalid credentials' });
     } else {
-        // sign a JWT token and return it in the response
         const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET!);
-        res.json({ id: user.id, email: user.email, token });
+        res.json({ id: user.id, name: user.name, email: user.email, token });
     }
 });
 
