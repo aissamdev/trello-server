@@ -42,7 +42,8 @@ function getUser(req: Request) {
 }
 
 app.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;  
+    const { email, password } = req.body; 
+    console.log(req.body) 
     const user = await prisma.user.findFirst({
         where: { email },
     });
