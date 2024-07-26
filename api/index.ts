@@ -55,7 +55,8 @@ app.post('/api/login', async (req, res) => {
     } else {
         const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET!);
         res.cookie('token', token, {
-            httpOnly: true
+            httpOnly: true,
+            path: '/api',
         }).json({ id: user.id, name: user.name, email: user.email, token });
     }
 });
