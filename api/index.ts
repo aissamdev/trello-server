@@ -11,10 +11,12 @@ import swaggerUI from 'swagger-ui-express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 const prisma = new PrismaClient();
 
