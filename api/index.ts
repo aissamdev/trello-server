@@ -52,7 +52,10 @@ app.post('/api/login', async (req, res) => {
         res.status(401).json({ error: 'Invalid credentials' });
     } else {
         const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET!);
-        res.json({ id: user.id, name: user.name, email: user.email, token });
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+        }).json({ id: user.id, name: user.name, email: user.email, token });
     }
 });
 
