@@ -61,7 +61,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 // create a RESTful-style API handlerr
-const apiHandler = RestApiHandler({ endpoint: 'http://localhost:3000/api' });
+const apiHandler = RestApiHandler({ endpoint: 'https://trello-server-gules.vercel.app/api/' });
 
 app.use('/api', ZenStackMiddleware({ 
     getPrisma: (req) => enhance(prisma, { user: getUser(req) }),
