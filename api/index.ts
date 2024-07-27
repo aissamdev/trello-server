@@ -29,7 +29,7 @@ const spec = JSON.parse(
 app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(spec, options));
 
 function getUser(req: Request) {
-    const token = req.cookies.token;
+    const token = req.body.token;
     console.log('TOKEN:', token);
     if (!token) {
         console.log('no token');
@@ -40,6 +40,7 @@ function getUser(req: Request) {
         return { id: decoded.sub };
     } catch {
         // bad token
+        console.log('bad token');
         return undefined;
     }
 }
@@ -54,9 +55,7 @@ app.post('/api/login', async (req, res) => {
         res.status(401).json({ error: 'Invalid credentials' });
     } else {
         const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET!);
-        res.cookie('token', token, {
-            httpOnly: false,
-        }).json({ id: user.id, name: user.name, email: user.email, token });
+        res.json({ id: user.id, name: user.name, email: user.email, token });
     }
 });
 
