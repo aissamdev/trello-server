@@ -31,6 +31,7 @@ app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(spec, options));
 function getUser(req: Request) {
     const token = req.headers.authorization?.split(' ')[1];
     console.log('TOKEN:', token);
+    console.log('req:', req.body)
     if (!token) {
         console.log('no token');
         return undefined;
