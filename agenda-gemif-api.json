@@ -191,51 +191,62 @@
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lt]",
+            "name": "filter[year$contains]",
             "required": false,
-            "description": "Less-than filter for \"year\"",
+            "description": "String contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lte]",
+            "name": "filter[year$icontains]",
             "required": false,
-            "description": "Less-than or equal filter for \"year\"",
+            "description": "String case-insensitive contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gt]",
+            "name": "filter[year$search]",
             "required": false,
-            "description": "Greater-than filter for \"year\"",
+            "description": "String full-text search filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gte]",
+            "name": "filter[year$startsWith]",
             "required": false,
-            "description": "Greater-than or equal filter for \"year\"",
+            "description": "String startsWith filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[year$endsWith]",
+            "required": false,
+            "description": "String endsWith filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -780,51 +791,62 @@
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lt]",
+            "name": "filter[year$contains]",
             "required": false,
-            "description": "Less-than filter for \"year\"",
+            "description": "String contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lte]",
+            "name": "filter[year$icontains]",
             "required": false,
-            "description": "Less-than or equal filter for \"year\"",
+            "description": "String case-insensitive contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gt]",
+            "name": "filter[year$search]",
             "required": false,
-            "description": "Greater-than filter for \"year\"",
+            "description": "String full-text search filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gte]",
+            "name": "filter[year$startsWith]",
             "required": false,
-            "description": "Greater-than or equal filter for \"year\"",
+            "description": "String startsWith filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[year$endsWith]",
+            "required": false,
+            "description": "String endsWith filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -1113,51 +1135,62 @@
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lt]",
+            "name": "filter[year$contains]",
             "required": false,
-            "description": "Less-than filter for \"year\"",
+            "description": "String contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$lte]",
+            "name": "filter[year$icontains]",
             "required": false,
-            "description": "Less-than or equal filter for \"year\"",
+            "description": "String case-insensitive contains filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gt]",
+            "name": "filter[year$search]",
             "required": false,
-            "description": "Greater-than filter for \"year\"",
+            "description": "String full-text search filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
-            "name": "filter[year$gte]",
+            "name": "filter[year$startsWith]",
             "required": false,
-            "description": "Greater-than or equal filter for \"year\"",
+            "description": "String startsWith filter for \"year\"",
             "in": "query",
             "style": "form",
             "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[year$endsWith]",
+            "required": false,
+            "description": "String endsWith filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -4150,7 +4183,7 @@
                 "type": "string"
               },
               "year": {
-                "type": "integer"
+                "type": "string"
               },
               "password": {
                 "type": "string"
@@ -4201,7 +4234,7 @@
                     "type": "string"
                   },
                   "year": {
-                    "type": "integer"
+                    "type": "string"
                   },
                   "password": {
                     "type": "string"
@@ -4255,7 +4288,7 @@
                     "type": "string"
                   },
                   "year": {
-                    "type": "integer"
+                    "type": "string"
                   },
                   "password": {
                     "type": "string"
