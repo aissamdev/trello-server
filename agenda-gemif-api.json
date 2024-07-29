@@ -184,6 +184,61 @@
             }
           },
           {
+            "name": "filter[year]",
+            "required": false,
+            "description": "Equality filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lt]",
+            "required": false,
+            "description": "Less-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lte]",
+            "required": false,
+            "description": "Less-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gt]",
+            "required": false,
+            "description": "Greater-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gte]",
+            "required": false,
+            "description": "Greater-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
             "name": "filter[password]",
             "required": false,
             "description": "Equality filter for \"password\"",
@@ -718,6 +773,61 @@
             }
           },
           {
+            "name": "filter[year]",
+            "required": false,
+            "description": "Equality filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lt]",
+            "required": false,
+            "description": "Less-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lte]",
+            "required": false,
+            "description": "Less-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gt]",
+            "required": false,
+            "description": "Greater-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gte]",
+            "required": false,
+            "description": "Greater-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
             "name": "filter[password]",
             "required": false,
             "description": "Equality filter for \"password\"",
@@ -993,6 +1103,61 @@
             "explode": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "filter[year]",
+            "required": false,
+            "description": "Equality filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lt]",
+            "required": false,
+            "description": "Less-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$lte]",
+            "required": false,
+            "description": "Less-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gt]",
+            "required": false,
+            "description": "Greater-than filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[year$gte]",
+            "required": false,
+            "description": "Greater-than or equal filter for \"year\"",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "integer"
             }
           },
           {
@@ -3984,6 +4149,9 @@
               "name": {
                 "type": "string"
               },
+              "year": {
+                "type": "integer"
+              },
               "password": {
                 "type": "string"
               }
@@ -4022,6 +4190,7 @@
                 "required": [
                   "email",
                   "name",
+                  "year",
                   "password"
                 ],
                 "properties": {
@@ -4030,6 +4199,9 @@
                   },
                   "name": {
                     "type": "string"
+                  },
+                  "year": {
+                    "type": "integer"
                   },
                   "password": {
                     "type": "string"
@@ -4081,6 +4253,9 @@
                   },
                   "name": {
                     "type": "string"
+                  },
+                  "year": {
+                    "type": "integer"
                   },
                   "password": {
                     "type": "string"
