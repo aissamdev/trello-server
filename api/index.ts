@@ -33,7 +33,7 @@ function getUser(req: Request) {
     console.log('TOKEN:', token);
     console.log('req:', req.body)
     if (!token) {
-        console.log('no token');
+        console.log('no tokenn');
         return undefined;
     }
     try {
