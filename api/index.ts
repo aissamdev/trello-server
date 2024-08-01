@@ -14,7 +14,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:5173', 'https://trello-omega-gules.vercel.app'] }));
+app.use(cors({ origin: ['http://localhost:5173', 'https://trello-omega-gules.vercel.app', 'https://gemif.vercel.app'] }));
 app.use(express.json());
 app.use(cookieParser());
 
