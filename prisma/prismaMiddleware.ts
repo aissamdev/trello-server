@@ -15,7 +15,7 @@ prisma.$use(async (params: Prisma.MiddlewareParams, next: (params: Prisma.Middle
         const date: Date = new Date()
         const quadri : number = date.getMonth() >= 1 ? 1 : 0
 
-        const yearIndex = Number(result.attributes.year ?? '1') - 1;
+        const yearIndex = Number(result.year ?? '1') - 1;
         const subjects = SUBJECTS[yearIndex][quadri];
 
         const initialBoards: Prisma.BoardCreateManyInput[] = subjects.map((subject) => ({
