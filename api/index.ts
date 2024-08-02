@@ -1,54 +1,44 @@
-import { PrismaClient } from '@prisma/client';
-import { ZenStackMiddleware } from '@zenstackhq/server/express';
-import RestApiHandler from '@zenstackhq/server/api/rest';
-import express from 'express';
+// backend/server.ts
+import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { compareSync } from 'bcryptjs';
-import { enhance } from '@zenstackhq/runtime'
-import { Request } from 'express';
 import swaggerUI from 'swagger-ui-express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { ZenStackMiddleware } from '@zenstackhq/server/express';
+import RestApiHandler from '@zenstackhq/server/api/rest';
+import prisma from '../prisma/prismaMiddleware'; // Import the middleware-enhanced Prisma client
+import { enhance } from '@zenstackhq/runtime';
+
+dotenv.config();
 
 const app = express();
 app.use(cors({ origin: ['http://localhost:5173', 'https://trello-omega-gules.vercel.app', 'https://gemif.vercel.app'] }));
 app.use(express.json());
-app.use(cookieParser());
-
-const prisma = new PrismaClient();
-
-dotenv.config();
 
 const options = { customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.css' };
-const spec = JSON.parse(
-    fs.readFileSync(path.join(__dirname, '../agenda-gemif-api.json'), 'utf8')
-);
+const spec = JSON.parse(fs.readFileSync(path.join(__dirname, '../agenda-gemif-api.json'), 'utf8'));
 app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(spec, options));
 
-function getUser(req: Request) {
+function getUser(req: Request): { id: string } | undefined {
     const token = req.headers.authorization?.split(' ')[1];
-    console.log('TOKEN:', token);
-    console.log('req:', req.body)
     if (!token) {
-        console.log('no tokenn');
         return undefined;
     }
     try {
         const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
         return { id: decoded.sub };
     } catch {
-        // bad token
-        console.log('bad token');
+        // Bad token
         return undefined;
     }
 }
 
-app.post('/api/login', async (req, res) => {
-    const { email, password } = req.body; 
-    console.log(req.body) 
+app.post('/api/login', async (req: Request, res: Response) => {
+    const { email, password } = req.body;
     const user = await prisma.user.findFirst({
         where: { email },
     });
@@ -60,12 +50,12 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// create a RESTful-style API handlerr
+// Create a RESTful-style API handler
 const apiHandler = RestApiHandler({ endpoint: 'https://trello-server-gules.vercel.app/api/' });
 
-app.use('/api', ZenStackMiddleware({ 
-    getPrisma: (req) => enhance(prisma, { user: getUser(req) }),
-    handler: apiHandler 
+app.use('/api', ZenStackMiddleware({
+    getPrisma: (req: Request) => enhance(prisma, { user: getUser(req) }), // Use the enhanced Prisma client
+    handler: apiHandler
 }));
 
 export default app;
